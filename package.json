@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --base-href /l3m-tp-angular-inputs-outputs/",
+    "build": "ng build --base-href /l3-miage-cl-ihm/e-s-de-composants-angular-tu-2023-2024-l3miage-ourzikj/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
