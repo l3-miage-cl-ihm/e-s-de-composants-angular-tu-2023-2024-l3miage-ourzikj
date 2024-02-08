@@ -1,13 +1,18 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
+import { CssStyle, defaultStyle } from './data';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  
 })
+
 export class AppComponent {
-  /**
-   * à compléter
-   */
+  
+
+  private readonly style=signal<CssStyle>(defaultStyle);   //signal primaire
+  readonly cssStyle=computed<CssStyle>(()=>this.style());  //signal dérivé de style
+  
 }
