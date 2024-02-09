@@ -1,3 +1,5 @@
 
 <pre> {{cssStyle()|json}}</pre>
-<div class="stylée " [style]="cssStyle()"></div>
+
+<app-css-styler [cssStyle]="cssStyle()" (cssStyleChange)="cssStyleChange($event)"></app-css-styler>
+<div class="stylée " [style]="cssStyle()"></div> 
