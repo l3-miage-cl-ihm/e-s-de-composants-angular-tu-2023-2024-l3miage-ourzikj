@@ -16,7 +16,6 @@ export class CssStylerComponent {
   unit:Unit="px"; 
   borderRadius=0;
 
- 
 
 
 
@@ -28,7 +27,7 @@ export class CssStylerComponent {
   
   changeBGC(event: any): void {
     this.backgroundColor = event;
-        this.styleChange(this.getCssStyle());
+    this.styleChange(this.getCssStyle());
 
   }
 
@@ -69,6 +68,8 @@ export class CssStylerComponent {
 
 
   }
+
+  
 
 
  
