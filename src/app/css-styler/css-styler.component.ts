@@ -11,18 +11,18 @@ import { style } from '@angular/animations';
 })
 export class CssStylerComponent {
 
-  backgroundColor:string="#ffffff";
-  borderColor:string="#ffffff";
-  unit:Unit="px"; 
-  borderRadius=0;
+  backgroundColor=signal<string>("#ffffff");
+  borderColor=signal<string>("#ffffff");
+  borderRadius=signal<number>(0);
+  unit=signal<Unit>("px"); 
 
 
 
-  readonly style:CssStyle={
-    backgroundColor:this.backgroundColor,
-    borderColor:this.borderColor,
-    borderRadius:`${this.borderRadius}${this.unit}`
-  };
+  readonly style=computed<CssStyle>(()=>({
+    backgroundColor:this.backgroundColor(),
+    borderColor:this.borderColor(),
+    borderRadius:`${this.borderRadius()}${this.unit()}`
+  }));
   
   changeBGC(event: any): void {
     this.backgroundColor = event;
@@ -42,9 +42,9 @@ export class CssStylerComponent {
 
   getCssStyle(): CssStyle {
     return {
-      backgroundColor: this.backgroundColor,
-      borderColor: this.borderColor,
-      borderRadius: `${this.borderRadius}${this.unit}`
+      backgroundColor: this.style().backgroundColor,
+      borderColor: this.style().borderColor,
+      borderRadius:this.style().borderRadius
     };
   }
   
