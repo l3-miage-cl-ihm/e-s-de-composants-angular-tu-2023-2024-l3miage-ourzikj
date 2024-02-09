@@ -11,30 +11,44 @@ import { style } from '@angular/animations';
 })
 export class CssStylerComponent {
 
-  backgroundColor=signal<string>("#ffffff");
-  borderColor=signal<string>("#ffffff");
-  radius=signal<number>(0);
-  unit=signal<Unit>("px"); 
-  borderRadius=computed<CssStyle['borderRadius']>(()=> `${this.radius()}${this.unit()}`);
+  backgroundColor:string="#ffffff";
+  borderColor:string="#ffffff";
+  unit:Unit="px"; 
+  borderRadius=0;
 
 
-  readonly style=computed<CssStyle>(()=>({
-    backgroundColor:this.backgroundColor(),
-    borderColor:this.borderColor(),
-    borderRadius:this.borderRadius()
-  }));
+
+  readonly style:CssStyle={
+    backgroundColor:this.backgroundColor,
+    borderColor:this.borderColor,
+    borderRadius:`${this.borderRadius}${this.unit}`
+  };
   
-  changeBGC(e:Event ){
-    const inputEvent = e as InputEvent;
-    if (inputEvent?.target) {
-      // Access the value property of the target to get the value of the color input
-      const colorValue = (inputEvent.target as HTMLInputElement).value;
-      this.backgroundColor.set(colorValue);
-    }
+  changeBGC(event: any): void {
+    this.backgroundColor = event;
+    this.styleChange(this.getCssStyle());
 
-    this.styleChange(this.style());
+  }
+
+  changeBorderColor(event: any): void {
+    this.borderColor = event;
+    this.styleChange(this.getCssStyle());
+  }
+
+  changeBorderRadius(event: any): void {
+    this.borderRadius = event;
+    this.styleChange(this.getCssStyle());
+  }
+
+  getCssStyle(): CssStyle {
+    return {
+      backgroundColor: this.backgroundColor,
+      borderColor: this.borderColor,
+      borderRadius: `${this.borderRadius}${this.unit}`
+    };
   }
   
+ 
  
   
 
