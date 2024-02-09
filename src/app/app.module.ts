@@ -4,11 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { CssStylerComponent } from './css-styler/css-styler.component';
+import { ColorSelectComponent } from './color-select/color-select.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CssStylerComponent,
+    ColorSelectComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,9 @@
+:host {
+    display: inline-flex;
+    flex-flow: row nowrap;
+
+    > .inputs {
+        display: flex;
+        flex-flow: column;
+    }
+}

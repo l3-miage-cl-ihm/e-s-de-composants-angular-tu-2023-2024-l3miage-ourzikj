@@ -1,0 +1,6 @@
+<div class="color"></div>
+<div class="inputs">
+    <input type="range" min="0" max="255"  [ngModel]="R()" (ngModelChange)="changeR($event) " /> 
+    <input type="range" min="0" max="255"   [ngModel]="G()" (ngModelChange)="changeG($event)"/> 
+    <input type="range" min="0" max="255"   [ngModel]="B()" (ngModelChange)="changeB($event)"/>
+</div>

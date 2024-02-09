@@ -16,6 +16,8 @@ export class CssStylerComponent {
   unit:Unit="px"; 
   borderRadius=0;
 
+ 
+
 
 
   readonly style:CssStyle={
@@ -65,6 +67,19 @@ export class CssStylerComponent {
     
     this.cssStyleChange.emit(style) ;
 
+
   }
 
+
+ 
+  changeBGColor(bgc:string){
+    this.backgroundColor=bgc;
+    this.cssStyleChange.emit(this.getCssStyle()) ;
+  }
+  changeBColor(bc:string){
+    this.borderColor=bc;
+    this.cssStyleChange.emit(this.getCssStyle()) ;
+  }
+
+  
 }
